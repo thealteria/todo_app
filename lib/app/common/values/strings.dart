@@ -6,4 +6,5 @@ class Strings {
   static const String error = 'Error';
   static const success = 'Success';
   static const String somethingWentWrong = 'Something went wrong.';
+  static const String noDataAvailable = 'No Data Available.';
 }
