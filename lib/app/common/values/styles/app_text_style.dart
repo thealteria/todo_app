@@ -16,7 +16,7 @@ class AppTextStyle {
   );
 
   static final TextStyle regularStyle = _textStyle.copyWith(
-    fontSize: Dimens.fontSize18,
+    fontSize: Dimens.fontSize15,
     fontWeight: FontWeight.w400,
   );
 

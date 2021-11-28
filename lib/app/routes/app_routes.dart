@@ -3,8 +3,10 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   static const HOME = _Paths.HOME;
+  static const ADD_TODO = _Paths.ADD_TODO;
 }
 
 abstract class _Paths {
   static const HOME = '/home';
+  static const ADD_TODO = '/add-todo';
 }

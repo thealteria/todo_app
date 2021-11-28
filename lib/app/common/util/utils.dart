@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo_app/app/common/util/exports.dart';
@@ -51,23 +49,29 @@ class Utils {
         ),
       );
 
-  static String getRandomString(
-    int length, {
-    bool isNumber = true,
+  static void timePicker(
+    Function(int seconds) onSelectTime, {
+    TimeOfDay? initialTime,
   }) {
-    final _chars = isNumber ? '1234567890' : 'abcdefghijklmnopqrstuvwxyz';
-    final _rnd = Random();
-
-    return String.fromCharCodes(
-      Iterable.generate(
-        length,
-        (_) => _chars.codeUnitAt(
-          _rnd.nextInt(
-            _chars.length,
+    showTimePicker(
+      initialEntryMode: TimePickerEntryMode.input,
+      context: Get.overlayContext!,
+      initialTime: initialTime ??
+          TimeOfDay.fromDateTime(
+            DateTime.now(),
           ),
-        ),
-      ),
-    );
+    ).then((v) {
+      if (v != null) {
+        final _duration = Duration(
+          hours: v.hour,
+          minutes: v.minute,
+        );
+
+        Get.printInfo(info: '_duration: ${_duration.toString()}');
+
+        onSelectTime(_duration.inSeconds);
+      }
+    });
   }
 
   static void loadingDialog() {

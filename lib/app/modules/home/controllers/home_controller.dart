@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:todo_app/app/routes/app_pages.dart';
 
 class HomeController extends GetxController {
   final RxList _todosList = RxList();
@@ -11,6 +12,6 @@ class HomeController extends GetxController {
   }
 
   void onAddTodo() {
-    
+    Get.toNamed(Routes.ADD_TODO);
   }
 }
