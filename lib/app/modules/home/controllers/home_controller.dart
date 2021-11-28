@@ -44,7 +44,7 @@ class HomeController extends GetxController {
 
     const oneSec = Duration(seconds: 1);
 
-    _timer = Timer.periodic(
+    _timer ??= Timer.periodic(
       oneSec,
       (t) {
         if (todosList.every((e) => e.duration == 0)) {
