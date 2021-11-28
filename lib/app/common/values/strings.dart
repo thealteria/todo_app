@@ -17,7 +17,7 @@ class Strings {
   static const String fieldCantBeEmpty = "Field can't be empty.";
   static const String save = 'Save';
   static const String status = 'Status';
-  static const String done = 'Done';
-  static const String statusDone = 'Status: Done';
+  static const String done = 'DONE';
+  static const String statusDone = 'Status: DONE';
   static const String todoAddedSuccessfully = 'Todo added successfully';
 }

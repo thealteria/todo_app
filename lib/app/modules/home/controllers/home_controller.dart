@@ -11,6 +11,8 @@ class HomeController extends GetxController {
 
   Timer? _timer;
 
+  RxBool isListView = true.obs;
+
   @override
   void onReady() {
     super.onReady();
@@ -40,6 +42,9 @@ class HomeController extends GetxController {
   }
 
   void _startTimer() {
+    _timer?.cancel();
+    _timer = null;
+
     if (todosList.isEmpty) return;
 
     const oneSec = Duration(seconds: 1);
@@ -82,6 +87,7 @@ class HomeController extends GetxController {
     }
 
     updateList(t, index);
+    // _startTimer();
     update();
   }
 
@@ -90,5 +96,10 @@ class HomeController extends GetxController {
     Storage.todoList = todosList;
 
     printInfo(info: 'list: ${Storage.todoList}');
+  }
+
+  void onListToggle() {
+    isListView.toggle();
+    update();
   }
 }
