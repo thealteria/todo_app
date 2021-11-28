@@ -11,8 +11,13 @@ class Strings {
   static const String title = 'Title';
   static const String description = 'Description (Optional)';
   static const String duration = 'Duration';
+  static const String remainingDuration = 'Remaining Duration';
   static const String minutes = 'Minutes';
   static const String seconds = 'Seconds';
-  static const String save = 'Save';
   static const String fieldCantBeEmpty = "Field can't be empty.";
+  static const String save = 'Save';
+  static const String status = 'Status';
+  static const String done = 'Done';
+  static const String statusDone = 'Status: Done';
+  static const String todoAddedSuccessfully = 'Todo added successfully';
 }

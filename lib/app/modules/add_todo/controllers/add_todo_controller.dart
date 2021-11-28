@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
+import 'package:todo_app/app/common/storage/storage.dart';
 import 'package:todo_app/app/common/util/exports.dart';
+import 'package:todo_app/app/model/todo.dart';
 
 class AddTodoController extends GetxController {
   final formKey = GlobalKey<FormState>();
@@ -60,5 +62,25 @@ class AddTodoController extends GetxController {
     formKey.currentState?.save();
 
     Utils.closeKeyboard();
+
+    final duration = Duration(
+      minutes: minute,
+      seconds: secs,
+    );
+
+    final Todo todo = Todo(
+      title: titleController.text,
+      duration: duration.inSeconds,
+      status: 1,
+      description: descriptionController.text,
+    );
+
+    final list = Storage.todoList;
+    list.add(todo);
+
+    Storage.todoList = list;
+
+    Get.back();
+    Utils.showSnackbar(Strings.todoAddedSuccessfully);
   }
 }
